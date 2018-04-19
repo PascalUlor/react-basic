@@ -5,10 +5,6 @@ import { Home } from "./components/Home";
 
 class App extends React.Component {
     render() {
-        let user = {
-            hobby: ["Acquiring knowledge", "Coding"],
-            status: "single"
-        }
       return (
         <div className="container">
             <div className="row">
@@ -18,9 +14,7 @@ class App extends React.Component {
             </div>
             <div className="row">
                 <div className="col-xs col-xs-offset-1">
-                    <Home name={"Pascal"} age={"28"} user={user}>
-                    <p>This text is outside the Home Componenet</p>
-                    </Home>
+                    <Home name={"Pascal"} age={28}/>
                 </div>
             </div>
         </div>
