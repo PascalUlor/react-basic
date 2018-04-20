@@ -11,10 +11,40 @@ export class Home extends React.Component {
     };
     setTimeout(() => {
       this.setState({
-        status: "single"
+        status: 1
       });
     }, 3000);
+    console.log("Constructor");
   }
+
+  componeneWillMount() {
+    console.log("Component Will mount");
+  }
+
+  componentDidMount() {
+    console.log("Component did mount");
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log("Component will recieve props", nextProps);
+  }
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log("Should Component update", nextProps, nextState);
+    // if (nextState.status === 1) {
+    //   return false;
+    // }
+    return true;
+  }
+  componentWillUpdate(nextProps, nextState) {
+    console.log("Component willupdate", nextProps, nextState);
+  }
+  componentDidUpdate(prevProps, prevState) {
+    console.log("Component did update", prevProps, prevState);
+  }
+  componentWillUnmount() {
+    console.log("Component will unmount");
+  }
+
   onMakeOlder() {
     this.setState({
       age: this.state.age + 3
@@ -34,7 +64,7 @@ export class Home extends React.Component {
             <p>In a new Component</p>
             <p>title</p>
             <p>Your name is {this.props.name}, you are {this.state.age} years old</p>
-            <p>You are {this.state.status} af</p>
+            <p>You are {this.state.status}</p>
             <hr/>
             <button onClick={() => this.onMakeOlder()} className="btn btn-primary">make me older</button>
             <hr/>
@@ -50,7 +80,7 @@ export class Home extends React.Component {
 Home.propTypes = {
   name: PropTypes.string,
   initialAge: PropTypes.number,
-  status: PropTypes.string,
+  status: PropTypes.number,
   greet: PropTypes.func,
   initialLinkName: PropTypes.string
 };
